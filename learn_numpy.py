@@ -2,11 +2,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sbn
 from seaborn.categorical import boxplot as bxp
+from datetime import datetime as dt
 
 plt.figure(figsize=(12,6))
 #ax = plt.subplot()
 
-tl = pd.read_excel('.\\data\\TL Brawl.xls', index_col=0)
+tl = pd.read_excel('.\\data\\TL Brawl.xls')
 
 #tl = tl.iloc[:10].T.iloc[:8]
 #col = tl.columns
@@ -17,7 +18,7 @@ tl = pd.read_excel('.\\data\\TL Brawl.xls', index_col=0)
 #plt.ylabel("Position")
 #plt.legend(col)
 
-g = sbn.countplot(x='Univers', doc=tl)
-g = bxp(x="Univers", y='2008-09-01 00:00:00', doc=tl)
+g = sbn.countplot(x='Univers', data=tl)
+#g = bxp(x="Univers", y=dt(2008, 9, 1), data=tl)
 
 plt.show()
